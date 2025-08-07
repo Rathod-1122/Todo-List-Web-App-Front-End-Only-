@@ -26,7 +26,7 @@ function TodoList() {
 
   let deleteTask = (ind) => {
     console.log('the task list before the deletion is  :', taskList)
-    taskList.splice(ind)
+    taskList.splice(ind,1)
     console.log('the tasklist after the deletion is :', taskList)
     setTaskList([...taskList])
   }
