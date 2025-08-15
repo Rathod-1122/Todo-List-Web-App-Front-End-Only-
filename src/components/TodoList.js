@@ -14,7 +14,7 @@ function TodoList() {
       }
       setTaskList([...taskList, newTask])
       inputRef.current.value = ''
-    }
+    } 
   }
   let editTask = (ele, ind) => {
     console.log('the ele and ind :', ele, ind)
@@ -30,16 +30,23 @@ function TodoList() {
     console.log('the tasklist after the deletion is :', taskList)
     setTaskList([...taskList])
   }
+
+  let handlekeyDown = (eo)=>{
+    if(eo.key === 'Enter') {
+      addTask();
+    }
+  }
+
   return (
     <div className='main-container'>
       <h1><u>Todo List</u></h1>
       <div className='add-task-container'>
         <label>Add Task</label>
         <div>
-          <input ref={inputRef} type='text'></input>
-          <button type='button' onClick={() => {
-            addTask();
-          }}>Add</button>
+          <input ref={inputRef} onKeyDown={handlekeyDown} type='text'></input>
+          <button type='button' onClick={(eo) => {
+            addTask(eo);
+          }} >Add</button>
         </div>
       </div>
 
